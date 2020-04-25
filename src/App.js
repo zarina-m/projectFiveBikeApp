@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Header from './Header'
+import Results from './Results'
 import './App.css';
 
-function App() {
-  return (
-    <>
-    
-    </>
-  );
+class App extends Component {
+    state = {
+
+    }
+  render() {
+    return (
+      <> 
+      <Header/>
+      <Results/>
+      </>
+
+    )
+  }
 }
 
 export default App;
