@@ -1,33 +1,53 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 import Header from './Header'
 import Search from './Search'
 import Results from './Results'
 import Result from './Result'
-import './App.css';
+import './setup.css'
+import './App.css'
+
 
 class App extends Component {
     constructor() {
       super()
       this.state = {
-
+        stations: [],
       }
     }
+    componentDidMount() {
+      this.getStationInfo()
+    }
 
-  search = (startPoint, endPoint) => {
-    console.log(startPoint, endPoint)
-  }
-
+    getStationInfo = () => {
+      const url = 'https://tor.publicbikesystem.net/ube/gbfs/v1/en/station_information';
+      axios({
+        method: 'GET',
+        url: url,
+        params: {
+          format: 'json',
+        }
+      }).then((res) => {
+        this.setState({
+          stations: res.data.data.stations
+        })
+      })
+    }
 
   render() {
     return (
       <> 
       <Header/>
-      <Search search={this.search}/>
-      <Results/>
+      <main>
+          <Search stations={this.state.stations} />
+          <Results />
+      </main>
       </>
 
     )
   }
+
 }
+
 
 export default App;
