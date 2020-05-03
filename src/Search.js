@@ -5,8 +5,8 @@ export class Search extends Component {
     state = {
         startLocation: "",
         endLocation: ""
-
     }
+
     onChange = (e) => this.setState({ [e.target.name]: e.target.value })
 
     getLocationInfo = async (location) => {
@@ -52,17 +52,54 @@ export class Search extends Component {
 
     }
 
+    getStationStatus = async () => {
+        let url = 'https://toronto-us.publicbikesystem.net/ube/gbfs/v1/en/station_status'
+        let result = await axios({
+            method: 'GET',
+            url: url,
+            params: {
+                format: 'json',
+            }
+        });
+        return result.data.data.stations
+    }
+
+    getCompleteStationData = (stationStatus, stationInfo) => {
+        let stationData = []
+        
+        stationStatus.forEach((stationDetail) => {
+            stationInfo.forEach((info) => {
+                if (stationDetail.station_id === info.station_id && stationDetail.status === "IN_SERVICE") {
+                    let stationInfo = {
+                        station_id: stationDetail.station_id,
+                        num_bikes_available: stationDetail.num_bikes_available,
+                        num_docks_available: stationDetail.num_docks_available,
+                        address: info.address
+                    }
+
+                    stationData.push(stationInfo)
+                }
+            })
+        })
+
+        return stationData
+
+    } 
 
     search = async (e) => {
         e.preventDefault()
         let startLatLong = await this.getLocationInfo(this.state.startLocation);
         let endLatLong = await this.getLocationInfo(this.state.endLocation);
-        console.log(startLatLong, endLatLong)
 
         let startCloseStations = this.getClosestStations(startLatLong)
         let endCloseStations = this.getClosestStations(endLatLong)
         console.log(startCloseStations)
         console.log(endCloseStations)
+        let stationStatus = await this.getStationStatus();
+
+        let startStationData = this.getCompleteStationData(stationStatus, startCloseStations)
+        let endStationData = this.getCompleteStationData(stationStatus, endCloseStations)
+        this.props.handleResults(startStationData, endStationData)
     }
 
     render() {

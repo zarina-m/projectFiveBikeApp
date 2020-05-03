@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import Result from './Result';
 
 class Results extends Component {
     render() {
-        return (
-            <div>
-                <h2>Results</h2>
-            </div>
-        )
+       
+        return this.props.results.map((result) => (
+            
+            <Result result={result} />
+            
+        ));
     }
 }
 
