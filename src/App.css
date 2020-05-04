@@ -4,11 +4,15 @@ html {
     color: white;
     text-align: center;
     margin: 0;
+    height: 100%;
 }
 
 body {
-        background-image: url(https://bikesharetoronto.com/wp-content/uploads/2020/02/IMG_5308.jpg);
-        background-size: cover;
+    background-image: url(https://bikesharetoronto.com/wp-content/uploads/2020/02/IMG_5308.jpg);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 100%;
 }
 
 .wrapper {
@@ -38,7 +42,7 @@ i {
 }
 
 p {
-    background-color: rgba(23, 42, 58, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 15px;
     line-height: 1.5;
 }
@@ -49,9 +53,10 @@ a {
     color: white;
     text-shadow: 1px 1px black;
     letter-spacing: -1px;
+    text-decoration: underline;
 }
 a:hover, a:focus {
-    text-decoration: underline;
+    letter-spacing: 1px;
 
 }
 
@@ -69,7 +74,7 @@ button {
     width: 20%;
     border: #2B6657;
     background-color: #2B6657;
-    color: #FAF3DD;
+    color: white;
     font-family: 'Roboto Mono', monospace;
     text-transform: uppercase;
     vertical-align: middle;
@@ -90,7 +95,7 @@ button:hover, button:focus {
 }
 
 .results {
-    background-color: rgba(23, 42, 58, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
     margin: 0 auto;
     display:flex;
     justify-content: space-evenly;
@@ -103,4 +108,33 @@ h2 {
 
 .results > div {
     width: 50%;
+}
+
+@media only screen and (max-width: 1000px) {
+    input, button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .wrapper {
+    max-width: 90%;
+    }
+    p {
+        line-height: normal;
+    }
+
+}
+@media only screen and (max-width: 500px) {
+    header {
+        height: 35vh;
+    }
+    h1 {
+        font-size: 2rem;
+        padding: 0;
+    }
+    p {
+        padding: 0;
+    }
 }
