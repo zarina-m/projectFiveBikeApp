@@ -11,6 +11,7 @@ class App extends Component {
     constructor() {
       super()
       this.state = {
+        hasResults: false,
         stations: [],
         startResults: [],
         endResults: []
@@ -24,7 +25,8 @@ class App extends Component {
       console.log(startStationData, endStationData)
       this.setState({
         startResults: startStationData,
-        endResults: endStationData
+        endResults: endStationData,
+        hasResults: true
       })
     }
 
@@ -47,15 +49,18 @@ class App extends Component {
     return (
       <> 
       <Header/>
-      <main>
+      <main className="wrapper">
           <Search stations={this.state.stations} handleResults={this.handleResults}/>
-          <div>
-            <Results results = {this.state.startResults}/>
-          </div>
-
-          <div>
-            <Results results={this.state.endResults} />
-          </div>
+          <section className="results" style={{visibility: this.state.hasResults ? "visible" : "hidden" }}>
+            <div> 
+              <h2>Start</h2>
+              <Results results = {this.state.startResults}/>
+            </div>
+            <div>
+              <h2>End</h2>
+              <Results results={this.state.endResults} />
+            </div>
+          </section>
       </main>
       </>
 

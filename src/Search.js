@@ -10,7 +10,11 @@ export class Search extends Component {
     onChange = (e) => this.setState({ [e.target.name]: e.target.value })
 
     getLocationInfo = async (location) => {
-        if (location.toLowerCase().indexOf('toronto') === -1) {
+        if (location.trim() === "") {
+            // A default location that will not return any results.
+            return {"lat": 0, "lng": 0}
+        }
+        else if (location.toLowerCase().indexOf('toronto') === -1) {
             location = location + ' toronto'
         }
         const url = 'http://open.mapquestapi.com/geocoding/v1/address';
@@ -74,7 +78,9 @@ export class Search extends Component {
                         station_id: stationDetail.station_id,
                         num_bikes_available: stationDetail.num_bikes_available,
                         num_docks_available: stationDetail.num_docks_available,
-                        address: info.address
+                        address: info.address,
+                        lat: info.lat,
+                        lng: info.lon
                     }
 
                     stationData.push(stationInfo)
@@ -104,11 +110,11 @@ export class Search extends Component {
 
     render() {
         return (
-            <section className="search outerWrapper">
+            <section className="search">
                 <form onSubmit={this.search}>
-                    <input type="text" name="startLocation" value={this.state.startPoint} onChange={this.onChange} placeholder="Starting point" required></input>
+                    <input type="text" name="startLocation" value={this.state.startPoint} onChange={this.onChange} placeholder="Starting point" aria-label="Enter start location" required></input>
                     <button type="submit" value="Submit">Submit</button>
-                    <input type="text" name="endLocation" value={this.state.endPoint} onChange={this.onChange} placeholder="Ending point"></input>
+                    <input type="text" name="endLocation" value={this.state.endPoint} onChange={this.onChange} placeholder="Ending point" aria-label="Enter end location"></input>
                 </form>
             </section>
         )
