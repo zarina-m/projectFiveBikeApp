@@ -17,7 +17,7 @@ export class Search extends Component {
         else if (location.toLowerCase().indexOf('toronto') === -1) {
             location = location + ' toronto'
         }
-        const url = 'http://open.mapquestapi.com/geocoding/v1/address';
+        const url = 'https://open.mapquestapi.com/geocoding/v1/address';
         const key = 'oG2GROEUtNBuOk8SP7rT4qE7fPSTy8mo'
         let result = await axios({
             method: 'GET',
