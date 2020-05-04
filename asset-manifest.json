@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/projectFiveBikeApp/static/css/main.bfedb749.chunk.css",
+    "main.js": "/projectFiveBikeApp/static/js/main.f23d57f6.chunk.js",
+    "main.js.map": "/projectFiveBikeApp/static/js/main.f23d57f6.chunk.js.map",
+    "runtime-main.js": "/projectFiveBikeApp/static/js/runtime-main.020abb7d.js",
+    "runtime-main.js.map": "/projectFiveBikeApp/static/js/runtime-main.020abb7d.js.map",
+    "static/js/2.ba9b82bf.chunk.js": "/projectFiveBikeApp/static/js/2.ba9b82bf.chunk.js",
+    "static/js/2.ba9b82bf.chunk.js.map": "/projectFiveBikeApp/static/js/2.ba9b82bf.chunk.js.map",
+    "index.html": "/projectFiveBikeApp/index.html",
+    "precache-manifest.edde58ab788e3340459a180d9e5719d6.js": "/projectFiveBikeApp/precache-manifest.edde58ab788e3340459a180d9e5719d6.js",
+    "service-worker.js": "/projectFiveBikeApp/service-worker.js",
+    "static/css/main.bfedb749.chunk.css.map": "/projectFiveBikeApp/static/css/main.bfedb749.chunk.css.map",
+    "static/js/2.ba9b82bf.chunk.js.LICENSE.txt": "/projectFiveBikeApp/static/js/2.ba9b82bf.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.020abb7d.js",
+    "static/js/2.ba9b82bf.chunk.js",
+    "static/css/main.bfedb749.chunk.css",
+    "static/js/main.f23d57f6.chunk.js"
+  ]
+}
