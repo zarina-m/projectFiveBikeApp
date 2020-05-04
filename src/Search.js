@@ -8,7 +8,7 @@ export class Search extends Component {
     }
 
     onChange = (e) => this.setState({ [e.target.name]: e.target.value })
-
+    //Turn user query locations into lat/long
     getLocationInfo = async (location) => {
         if (location.trim() === "") {
             // A default location that will not return any results.
@@ -41,7 +41,7 @@ export class Search extends Component {
 
             return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
     }
-
+    //Find stations within 0.3 km of the given latitude and longitude
     getClosestStations = (latlong) => {
         let closeStations = []
         for (let i = 0; i < this.props.stations.length; i++) {
@@ -55,7 +55,7 @@ export class Search extends Component {
         return closeStations
 
     }
-
+    //Axios call to get live data 
     getStationStatus = async () => {
         let url = 'https://toronto-us.publicbikesystem.net/ube/gbfs/v1/en/station_status'
         let result = await axios({
@@ -67,7 +67,7 @@ export class Search extends Component {
         });
         return result.data.data.stations
     }
-
+    //Merge live station data for nearby stations with station info
     getCompleteStationData = (stationStatus, stationInfo) => {
         let stationData = []
         
@@ -91,7 +91,7 @@ export class Search extends Component {
         return stationData
 
     } 
-
+    //On submit, search for bike stations near the start/end points
     search = async (e) => {
         e.preventDefault()
         let startLatLong = await this.getLocationInfo(this.state.startLocation);
@@ -99,8 +99,7 @@ export class Search extends Component {
 
         let startCloseStations = this.getClosestStations(startLatLong)
         let endCloseStations = this.getClosestStations(endLatLong)
-        console.log(startCloseStations)
-        console.log(endCloseStations)
+
         let stationStatus = await this.getStationStatus();
 
         let startStationData = this.getCompleteStationData(stationStatus, startCloseStations)

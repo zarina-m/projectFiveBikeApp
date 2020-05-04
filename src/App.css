@@ -1,18 +1,18 @@
 html {
+    height: 100%;
+    margin: 0;
+    color: white;
     font-family: 'Rubik', sans-serif;
     font-size: 18px;
-    color: white;
     text-align: center;
-    margin: 0;
-    height: 100%;
 }
 
 body {
+    height: 100%;
     background-image: url(https://bikesharetoronto.com/wp-content/uploads/2020/02/IMG_5308.jpg);
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: center;
-    height: 100%;
 }
 
 .wrapper {
@@ -21,63 +21,61 @@ body {
 }
 
 header {
-    height: 25vh;
     display: flex;
+    height: 25vh;
     flex-direction: column;
     justify-content: center;
-
 }
+
 h1 {
+    padding: 25px 0;
     color:white;
     font-family: 'Roboto Mono', monospace;
     font-size: 3rem;
     font-weight: bold;
     text-transform: uppercase;
-    padding: 25px 0;
 }
 
 i {
     color: black;
-
 }
 
 p {
-    background-color: rgba(0, 0, 0, 0.5);
     padding: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
     line-height: 1.5;
 }
 
 a {
-    text-decoration: none;
-    font-family: 'Roboto Mono', monospace;
     color: white;
-    text-shadow: 1px 1px black;
+    font-family: 'Roboto Mono', monospace;
     letter-spacing: -1px;
+    text-shadow: 1px 1px black;
     text-decoration: underline;
 }
+
 a:hover, a:focus {
     letter-spacing: 1px;
-
 }
 
 input {
     height:45px;
-    margin: 20px 0;
     padding:10px;
     border: transparent;
+    margin: 20px 0;
     vertical-align: middle;
 }
 
 button {
+    width: 20%;
     height:45px;
     padding:8px;
-    width: 20%;
     border: #2B6657;
     background-color: #2B6657;
     color: white;
     font-family: 'Roboto Mono', monospace;
-    text-transform: uppercase;
     vertical-align: middle;
+    text-transform: uppercase;
 }
 
 button:hover, button:focus {
@@ -85,8 +83,8 @@ button:hover, button:focus {
 }
 
 ::placeholder {
-    text-align: center;
     color: darkgray;
+    text-align: center;
 }
 
 .result {
@@ -95,11 +93,11 @@ button:hover, button:focus {
 }
 
 .results {
-    background-color: rgba(0, 0, 0, 0.5);
-    margin: 0 auto;
     display:flex;
-    justify-content: space-evenly;
     padding: 25px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: space-evenly;
 }
 
 h2 {
@@ -121,6 +119,7 @@ h2 {
     .wrapper {
     max-width: 90%;
     }
+
     p {
         line-height: normal;
     }
@@ -130,10 +129,12 @@ h2 {
     header {
         height: 35vh;
     }
+
     h1 {
         font-size: 2rem;
         padding: 0;
     }
+    
     p {
         padding: 0;
     }

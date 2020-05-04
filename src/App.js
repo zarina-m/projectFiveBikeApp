@@ -17,19 +17,19 @@ class App extends Component {
         endResults: []
       }
     }
+    //When application loads, retrieve all the station information
     componentDidMount() {
       this.getStationInfo()
     }
-
+    //Save nearby station info in state
     handleResults = (startStationData, endStationData) => {
-      console.log(startStationData, endStationData)
       this.setState({
         startResults: startStationData,
         endResults: endStationData,
         hasResults: true
       })
     }
-
+    //Axios call to retrieve all station info
     getStationInfo = () => {
       const url = 'https://tor.publicbikesystem.net/ube/gbfs/v1/en/station_information';
       axios({
