@@ -37,7 +37,7 @@ h1 {
 }
 
 i {
-    color: black;
+    color: darkorange;
 }
 
 p {
@@ -134,7 +134,7 @@ h2 {
         font-size: 2rem;
         padding: 0;
     }
-    
+
     p {
         padding: 0;
     }
