@@ -10,7 +10,7 @@ export class Result extends Component {
                 <h3>{address}</h3>
                 <span><i className="fas fa-bicycle" aria-label="Bicycles available"></i> {num_bikes_available} </span>
                 <span><i className="fas fa-charging-station" aria-label="Docks available"></i> {num_docks_available} </span>
-                <h3><a href={url}>Google Maps</a></h3>
+                <h3><a href={url} target="_blank">Google Maps</a></h3>
             </div>
         )
     }
